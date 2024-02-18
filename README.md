@@ -1,2 +1,8 @@
 # Pointers-Demo
- CSI 2320 - C++ for Programmers - Project 3
+
+### Compile Directions:
+Run Command
+ - g++ PointersDemo.cpp -o PointersDemo
+### Run Directions:
+Run Command
+ - ./PointersDemo
