@@ -7,12 +7,19 @@ int* duplicate(int *, unsigned int);
 void display(int *, unsigned int);
 
 int main() {
-    unsigned int n;
-    cout << "Enter the size of the dynamic array: ";
-    cin >> n;
+    int n;
+
+    do {
+        cout << "Enter the size of the dynamic array (n > 0): ";
+        cin >> n;
+    } while(n < 1);
 
     int* dynamicArray = generate(n);
+    cout << "\nContents of the original dynamic array:" << endl;
+    display(dynamicArray, n);
+
     int* duplicatedDynamicArray = duplicate(dynamicArray, n);
+    cout << "\nContents of the duplicated dynamic array:" << endl;
     display(duplicatedDynamicArray, n*2);
 
     delete []dynamicArray;
@@ -38,14 +45,12 @@ int* duplicate(int *originalDynamicArray, unsigned int n) {
         duplicatedDynamicArray[i] = originalDynamicArray[i];
         duplicatedDynamicArray[i + n] = originalDynamicArray[i];
     }
-
     return duplicatedDynamicArray;
 }
 
-void display(int *duplicatedDynamicArray, unsigned int size){
-    cout << "\nContents of the duplicated dynamic array:" << endl;
+void display(int *array, unsigned int size){
     for(int i = 0; i < size; i++) {
-        cout << duplicatedDynamicArray[i] << " ";
+        cout << array[i] << " ";
         if( (i+1) % 8 == 0) {
             cout << endl;
         }
